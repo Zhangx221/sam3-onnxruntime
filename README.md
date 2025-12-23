@@ -104,4 +104,5 @@ xmake run
    - [facebook/sam3](https://huggingface.co/facebook/sam3)
    - [dataplayer12/SAM3-TensorRT](https://github.com/dataplayer12/SAM3-TensorRT/tree/main)
   
-   
+## 致谢
+感谢 [naonao-cola](https://github.com/naonao-cola) 提供 C++ 代码。

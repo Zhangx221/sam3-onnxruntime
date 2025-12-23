@@ -63,6 +63,41 @@ Sam3 的 ONNX 导出与推理示例。包含模型导出、ONNXRuntime 推理，
 - 推理流程：图像预处理 + 文本编码 → ORT 推理 → 后处理与可视化输出 `vis.png`。
 - TensorRT 导出注意：直接对原始 ONNX 导出 engine 可能失败；必须先运行 `onnx_export/export_detect_onnx.py` 生成 ONNX，并通过 `onnx2engine/modify_onnx.py` 修正后再导出。
 
+## C++ 推理编译
+
+本项目提供了基于 C++ 和 TensorRT 的推理实现。
+
+### 1. 环境准备
+确保已安装以下依赖：
+- XMake
+- TensorRT
+- CUDA / cuDNN
+- OpenCV
+
+### 2. 配置路径
+在编译前，请打开 `cpp_src/xmake.lua` 文件，并根据您的环境修改文件顶部的 TensorRT 和 cuDNN 路径配置：
+
+```lua
+local trt_include_dir   = "/path/to/TensorRT/include"
+local trt_lib_dir       = "/path/to/TensorRT/lib"
+local cudnn_include_dir = "/path/to/cudnn/include"
+local cudnn_lib_dir     = "/path/to/cudnn/lib"
+```
+
+### 3. 编译与运行
+进入 `cpp_src` 目录并使用 xmake 进行编译：
+
+```bash
+cd cpp_src
+xmake
+```
+
+编译完成后，可以直接运行：
+
+```bash
+xmake run
+```
+
 ## 参考仓库
    - [facebook/sam3](https://huggingface.co/facebook/sam3)
    - [skane1024/transformer_CLIPTokenizer_cpp_implement](https://github.com/skane1024/transformer_CLIPTokenizer_cpp_implement/tree/main)

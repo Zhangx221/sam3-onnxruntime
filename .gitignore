@@ -1,1 +1,5 @@
 models
+__pycache__
+
+build
+.xmake
